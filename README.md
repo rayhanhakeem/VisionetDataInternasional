@@ -28,13 +28,13 @@
        }
 
        return result;
-   }
+       }
 
    Answer 3 :
    Saya memastikan urutan selalu disusun min max cth: (3,2) = (2,3) dan HashSet unique pairs menyimpan pasangan yang sudah pernah ditemukan.
    Kombinasi ini menghilangkan duplikat sepenuhnya.
    
-2. Logical Test — Concurrency & Thread Safety
+3. Logical Test — Concurrency & Thread Safety
    Answer 1 : Race Condition
 
    Answer 2 : Menggunakan Interlocked
@@ -44,5 +44,5 @@
    Untuk menjaga konsistensi, kita perlu menggunakan data store yang mendukung atomic operations seperti Redis (INCR), SQL (UPDATE dengan set value=value+1), atau menggunakan distributed lock.
    Bisa juga dengan message queue agar semua update dilakukan oleh satu consumer yang konsisten.
    
-3. Data Integrity Test — Transactional Consistency & UI
+4. Data Integrity Test — Transactional Consistency & UI
 
