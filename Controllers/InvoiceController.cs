@@ -12,14 +12,12 @@ namespace Visionet.Controllers
             _validator = validator;
         }
 
-        // GET: /Invoice/
         public IActionResult Index()
         {
             var data = _validator.ValidateAllInvoices();
             return View(data);
         }
 
-        // AJAX endpoint: refresh/validate all
         [HttpGet]
         public IActionResult ValidateAll()
         {
@@ -27,7 +25,6 @@ namespace Visionet.Controllers
             return Json(data);
         }
 
-        // AJAX endpoint: validate single invoice
         [HttpGet]
         public IActionResult ValidateSingle(string id)
         {

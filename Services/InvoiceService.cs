@@ -11,7 +11,6 @@ namespace Visionet.Services
             _db = db;
         }
 
-        // Create invoice with details in one transaction; compute total from details
         public async Task CreateInvoiceWithDetailsAsync(Invoice invoice, InvoiceDetail[] details)
         {
             using var tx = await _db.Database.BeginTransactionAsync();
@@ -28,7 +27,6 @@ namespace Visionet.Services
                 await _db.InvoiceDetails.AddRangeAsync(details);
                 await _db.SaveChangesAsync();
 
-                // Recalculate total and update invoice
                 var calcTotal = _db.InvoiceDetails
                     .Where(x => x.InvoiceID == invoice.InvoiceID)
                     .Sum(x => (decimal?)x.Qty * x.Price) ?? 0m;
@@ -46,7 +44,6 @@ namespace Visionet.Services
             }
         }
 
-        // Update invoice details safely (delete/add) and recalc total
         public async Task UpdateInvoiceDetailsAsync(string invoiceId, InvoiceDetail[] newDetails)
         {
             using var tx = await _db.Database.BeginTransactionAsync();

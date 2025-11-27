@@ -13,7 +13,6 @@ namespace Visionet.Services
 
         public List<InvoiceCheckResult> ValidateAllInvoices()
         {
-            // Gunakan GroupJoin + Sum agar single query
             var results = _db.Invoices
                 .Select(inv => new InvoiceCheckResult
                 {
