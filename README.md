@@ -4,12 +4,13 @@
    - Menghasilkan duplikat
      
    Answer 2 :
-   public List<(int, int)> FindPairsOptimized(List<int> numbers, int target)
-   {
+
+       public List<(int, int)> FindPairsOptimized(List<int> numbers, int target)
+       {
        var result = new List<(int, int)>();
        var seen = new HashSet<int>();
        var unique = new HashSet<(int, int)>();
-
+       
        foreach (var num in numbers)
        {
            int complement = target - num;
