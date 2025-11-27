@@ -1,4 +1,5 @@
 1. Statement Test — Code Analysis & Optimization
+
    Answer 1 :
    - Nested Loop membuat kode lambat
    - Menghasilkan duplikat
@@ -36,6 +37,7 @@
    Kombinasi ini menghilangkan duplikat sepenuhnya.
    
 4. Logical Test — Concurrency & Thread Safety
+
    Answer 1 : Race Condition
 
    Answer 2 : Menggunakan Interlocked
@@ -45,5 +47,5 @@
    Untuk menjaga konsistensi, kita perlu menggunakan data store yang mendukung atomic operations seperti Redis (INCR), SQL (UPDATE dengan set value=value+1), atau menggunakan distributed lock.
    Bisa juga dengan message queue agar semua update dilakukan oleh satu consumer yang konsisten.
    
-5. Data Integrity Test — Transactional Consistency & UI
+6. Data Integrity Test — Transactional Consistency & UI
 
